@@ -285,7 +285,7 @@ body {
 
 @media (min-width: 992px) {
   body {
-    padding: 0 0 0 300px;
+    padding: 0 0 0 240px;
   }
   .navmenu {
     padding-top: 0;
@@ -294,5 +294,80 @@ body {
     display: none !important; /* IE8 fix */
   }
 }
-
+body{
+	font-family: 'Open Sans', sans-serif;
+	background: #F6F8FA;
+}
+.navmenu-blue, .navbar-blue .navbar-offcanvas {
+    background-color: #0078B1;
+    border-color: #e7e7e7;
+    color: #FFF;
+}
+.navmenu-blue a{
+	color: #FFF;
+}
+.navmenu{
+	width: 240px;
+}
+.navmenu li.active{
+	background: #015D8D;
+}
+.nav>li>a:focus, .nav>li>a:hover {
+    text-decoration: none;
+    background-color: #08547B;
+}
+.nav>li>a .fa{
+	font-size: 12px;
+    margin-right: 6px;
+}
+.navmenu-brand{
+	text-align: left;
+}
+.contenido{
+	padding: 15px;
+	overflow: hidden;
+	background: #FFF;
+}
+.topMenu{
+	overflow: hidden;
+    border-bottom: 1px solid #EEE;
+    padding: 5px 0;
+    background: #FFF;
+}
+.breadcrumb{
+	background: transparent;
+	margin-bottom: 0;
+}
+.avatar{
+	padding: 0 15px;
+}
+.avatar img{
+	max-width: 32px;
+    border-radius: 100px;
+}
+.avatar span{
+	color: #777;
+}
+.avatar .sp{
+	padding-top: 7px;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+.avatar strong{
+	font-weight: 600;
+}
+.avBig{
+	max-width: 68px;
+    border-radius: 100px;
+}
+.padAv{
+	padding: 10px 15px;
+}
+.name{
+	color: #0078B1;
+    font-size: 20px;
+}
+.wrapp-inicio{
+	overflow: hidden;
+}
 /*# sourceMappingURL=vendor_base.css.map */
