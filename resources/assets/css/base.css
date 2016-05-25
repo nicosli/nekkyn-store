@@ -3,7 +3,7 @@ body{
 	background: #F6F8FA;
 }
 .navmenu-blue, .navbar-blue .navbar-offcanvas {
-    background-color: #0078B1;
+    background-color: #337AB7;
     border-color: #e7e7e7;
     color: #FFF;
 }
@@ -18,7 +18,7 @@ body{
 }
 .nav>li>a:focus, .nav>li>a:hover {
     text-decoration: none;
-    background-color: #08547B;
+    background-color: #0670A7;
 }
 .nav>li>a .fa{
 	font-size: 12px;

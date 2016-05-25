@@ -6,12 +6,17 @@
 @section('contenido')
 <div class="wrapp-inicio">
 	<div class="pull-left padAv">
-		<img class="avBig" src="{!! asset('/img/avatar.jpg') !!}" />
+		<img class="avBig" src="{!! asset($avatar) !!}" />
 	</div>
 	<div class="pull-left">
 		<div class="nickname">{!! Auth::user()->nickname !!}</div>
 		<div class="name">{!! Auth::user()->name !!}</div>
-		<a href="{!! asset('/') !!}" class="btn btn-primary btn-sm">Perfil</a>
+
+		@if(Auth::user()->idSocial == '')
+		<a href="{!! asset('/auth/facebook') !!}" class="btn btn-primary btn-sm"><i class="fa fa-facebook"></i> Conectar</a>
+		@else
+		<div>Conectado con facebook</div>
+		@endif
 	</div>
 </div>
 @endsection

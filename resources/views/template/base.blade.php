@@ -25,10 +25,10 @@
         <div class="pull-right">
             <div class="avatar">
                 <div class="pull-left">
-                    <img class="av" src="{!! asset('/img/avatar.jpg') !!}" />
+                    <img class="av" src="{!! asset($avatar) !!}" />
                 </div>
                 <div class="pull-right sp">
-                    <span>Hola <strong>{!! Auth::user()->nickname !!}</strong></span>                    
+                    <span>Hola <strong>{!! Auth::user()->nickname !!} </strong></span>                    
                 </div>
             </div>
         </div>
