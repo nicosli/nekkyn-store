@@ -12,5 +12,34 @@ var elixir = require('laravel-elixir');
  */
 
 elixir(function(mix) {
-    mix.sass('app.scss');
+    mix.scripts([
+		'/bower/jquery/dist/jquery.min.js',
+		'/bower/jquery-backstretch/jquery.backstretch.min.js',
+		'js/script.js'
+	 ], 'public/js/vendor_login.js', 'resources/assets' );
+
+	mix.styles([
+		'bower/bootstrap/dist/css/bootstrap.min.css',
+		'bower/fontawesome/css/font-awesome.min.css',
+		'css/form-element.css',
+		'css/style.css'
+	], 'public/css/vendor_login.css', 'resources/assets/');
+
+
+	mix.scripts([
+		'/bower/jquery/dist/jquery.min.js',
+		'/bower/moment/min/moment.min.js',
+		'/bower/bootstrap-daterangepicker/daterangepicker.js',
+		'/js/funciones.js'
+	 ], 'public/js/vendor_base.js', 'resources/assets' );
+
+	mix.styles([
+		'bower/bootstrap/dist/css/bootstrap.min.css',
+		'bower/fontawesome/css/font-awesome.min.css',
+		'/bower/bootstrap-daterangepicker/daterangepicker.css',
+		'css/base.css'
+	], 'public/css/vendor_base.css', 'resources/assets/');
+
+	mix.copy('resources/assets/bower/fontawesome/fonts', 'public/fonts');
+	mix.copy('resources/assets/bower/bootstrap/fonts', 'public/fonts');
 });
