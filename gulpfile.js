@@ -30,6 +30,7 @@ elixir(function(mix) {
 		'/bower/jquery/jquery.min.js',
 		'/bower/moment/min/moment.min.js',
 		'/bower/bootstrap-daterangepicker/daterangepicker.js',
+		'/bower/jasny-bootstrap/dist/js/jasny-bootstrap.min.js',
 		'/js/funciones.js'
 	 ], 'public/js/vendor_base.js', 'resources/assets' );
 
@@ -37,7 +38,8 @@ elixir(function(mix) {
 		'bower/bootstrap/dist/css/bootstrap.min.css',
 		'bower/fontawesome/css/font-awesome.min.css',
 		'/bower/bootstrap-daterangepicker/daterangepicker.css',
-		'css/simple-sidebar.css',
+		'/bower/jasny-bootstrap/dist/css/jasny-bootstrap.min.css',
+		'css/sidebar.css',
 		'css/base.css'
 	], 'public/css/vendor_base.css', 'resources/assets/');
 
