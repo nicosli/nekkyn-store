@@ -1,0 +1,1 @@
+<a href="{!!asset('/logout')!!}">salir</a>
