@@ -1553,5 +1553,10 @@ return a=K(a),this[a+"s"]()}function $c(a){return function(){return this._data[a
 
 }));
 
-
+$(document).ready(function(){
+	$("#menu-toggle").click(function(e) {
+        e.preventDefault();
+        $("#wrapper").toggleClass("toggled");
+    });
+});
 //# sourceMappingURL=vendor_base.js.map

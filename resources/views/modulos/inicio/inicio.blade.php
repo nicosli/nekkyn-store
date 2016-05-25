@@ -1,1 +1,1 @@
-<a href="{!!asset('/logout')!!}">salir</a>
+@extends('template.base')

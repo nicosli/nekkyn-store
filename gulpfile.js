@@ -37,6 +37,7 @@ elixir(function(mix) {
 		'bower/bootstrap/dist/css/bootstrap.min.css',
 		'bower/fontawesome/css/font-awesome.min.css',
 		'/bower/bootstrap-daterangepicker/daterangepicker.css',
+		'css/simple-sidebar.css',
 		'css/base.css'
 	], 'public/css/vendor_base.css', 'resources/assets/');
 
