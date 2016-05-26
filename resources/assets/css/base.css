@@ -3,26 +3,30 @@ body{
 	background: #F6F8FA;
 }
 .navmenu-blue, .navbar-blue .navbar-offcanvas {
-    background-color: #337AB7;
-    border-color: #e7e7e7;
+    background-color: #f5f5f5;
+    
     color: #FFF;
 }
 .navmenu-blue a{
-	color: #FFF;
+	color: #3572b0;
 }
 .navmenu{
 	width: 240px;
 }
 .navmenu li.active{
-	background: #015D8D;
+	background: #e6e6e6;
 }
 .nav>li>a:focus, .nav>li>a:hover {
     text-decoration: none;
-    background-color: #0670A7;
+    background-color: #E6E6E6;
 }
 .nav>li>a .fa{
-	font-size: 12px;
-    margin-right: 6px;
+	font-size: 16px;
+    margin-right: 10px;
+    color: #707070;
+}
+.nav>li>a{
+	padding: 7px 15px;
 }
 .navmenu-brand{
 	text-align: left;
@@ -31,16 +35,18 @@ body{
 	padding: 15px;
 	overflow: hidden;
 	background: #FFF;
+	padding-top: 55px;
 }
 .topMenu{
 	overflow: hidden;
     border-bottom: 1px solid #EEE;
     padding: 5px 0;
-    background: #FFF;
+    background: #205081;
 }
 .breadcrumb{
 	background: transparent;
 	margin-bottom: 0;
+	padding: 6px 15px;
 }
 .avatar{
 	padding: 0 15px;
@@ -50,7 +56,7 @@ body{
     border-radius: 100px;
 }
 .avatar span{
-	color: #777;
+	color: #FFF;
 }
 .avatar .sp{
 	padding-top: 7px;
@@ -73,4 +79,55 @@ body{
 }
 .wrapp-inicio{
 	overflow: hidden;
+}
+.breadcrumb>.active{
+	color: #D4D4D4;
+}
+.breadcrumb>li a{
+	color: #FFF;
+}
+.blueBackLeft{
+	background: #205081;
+    color: #FFF !important;
+    margin-top: 0;
+    padding: 6px 0;
+    display: block;
+    text-decoration: none;
+    width: 226px;
+    float: left;
+}
+.headTop{
+	background: #205081;
+    padding:5px 15px;
+    left: 0;
+    position: fixed;
+    width: 100%;
+}
+.mtbr{
+	margin-top: 42px;
+    border-right: 1px solid #DDD;
+}
+
+.menuTit{
+	color: #707070;
+    padding: 10px;
+    text-transform: uppercase;
+    font-weight: 600;
+    margin-bottom: 5px;
+    margin-top: 7px;
+}
+
+@media (max-width: 522px){
+	.padAv{
+		padding: 0px 12px 0px 0px;
+	}
+	.mtbr{
+		margin-top: 15px;
+	}
+	.breadcrumb{
+		display: none;
+	}
+	.blueBackLeft{
+		width: auto;
+	}
 }

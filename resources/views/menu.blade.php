@@ -1,5 +1,5 @@
-<div class="navmenu navmenu-blue navmenu-fixed-left offcanvas-sm">
-  <a class="navmenu-brand visible-md visible-lg" href="{!! asset('/') !!}">Nekkyn Backend</a>
+<div class="navmenu navmenu-blue navmenu-fixed-left offcanvas-sm mtbr">
+  <div class="menuTit">Navegación</div>
   <ul class="nav navmenu-nav">
     <li class="active"><a href="{!! asset('/') !!}"><i class="fa fa-desktop"></i> Dashboard</a></li>
     <li><a href="{!! asset('/') !!}"><i class="fa fa-credit-card"></i> Vender</a></li>
@@ -16,5 +16,5 @@
     <span class="icon-bar"></span>
     <span class="icon-bar"></span>
   </button>
-  <a class="navbar-brand" href="#">Nekkyn Backend</a>
+  <a class="navbar-brand" href="#">Nekkyn</a>
 </div>  
