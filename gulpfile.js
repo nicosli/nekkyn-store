@@ -30,6 +30,7 @@ elixir(function(mix) {
 		'/bower/jquery/jquery.min.js',
 		'/bower/moment/min/moment.min.js',
 		'/bower/bootstrap-daterangepicker/daterangepicker.js',
+		'/bower/bootstrap/dist/js/bootstrap.min.js',
 		'/bower/jasny-bootstrap/dist/js/jasny-bootstrap.min.js',
 		'/js/funciones.js'
 	 ], 'public/js/vendor_base.js', 'resources/assets' );

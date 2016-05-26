@@ -116,7 +116,22 @@ body{
     margin-bottom: 5px;
     margin-top: 7px;
 }
-
+.fah2{
+	color:#BBB;
+}
+.h2TitMod{
+	border-bottom: 1px solid #E2E2E2;
+    padding-bottom: 10px;
+}
+.tab-pane{
+	padding: 15px;
+	border-right: 1px solid #DDD;
+    border-bottom: 1px solid #DDD;
+    border-left: 1px solid #DDD;
+}
+p{
+	margin: 0px 0 20px;
+}
 @media (max-width: 522px){
 	.padAv{
 		padding: 0px 12px 0px 0px;
