@@ -2,7 +2,14 @@
 @section('titulo')
 	Nekkyn - Dashboard
 @stop
-
+@section('breadcrumb')
+<div class="wrapper-breadcrumb pull-left">
+    <ol class="breadcrumb">
+      <li><a href="{!! asset('/') !!}">Home</a></li>
+      <li class="active">Dashboard</li>
+    </ol>
+</div>
+@endsection
 @section('contenido')
 <div class="wrapp-inicio">
 	<div class="pull-left padAv">

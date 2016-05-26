@@ -16,12 +16,7 @@
     <div class="headTop">
         <div class="pull-left">
             <a class="blueBackLeft" href="{!! asset('/') !!}">Nekkyn Backend</a>
-            <div class="wrapper-breadcrumb pull-left">
-                <ol class="breadcrumb">
-                  <li><a href="#">Home</a></li>
-                  <li class="active">Dashboard</li>
-                </ol>
-            </div>
+            @yield('breadcrumb')
         </div>
         <div class="pull-right">
             <div class="avatar">
@@ -36,7 +31,7 @@
     </div>
 
     @include('menu')
-    
+
     <div class="contenido">
         @yield('contenido')        
     </div>

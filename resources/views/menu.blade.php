@@ -1,9 +1,12 @@
 <div class="navmenu navmenu-blue navmenu-fixed-left offcanvas-sm mtbr">
   <div class="menuTit">Navegación</div>
   <ul class="nav navmenu-nav">
-    <li class="active"><a href="{!! asset('/') !!}"><i class="fa fa-desktop"></i> Dashboard</a></li>
-    <li><a href="{!! asset('/') !!}"><i class="fa fa-credit-card"></i> Vender</a></li>
-    <li><a href="{!! asset('/') !!}"><i class="fa fa-tags"></i> Catálogos</a></li>
+    <li class="{{(Request::path()=='/')?'active':''}}"><a href="{!! asset('/') !!}"><i class="fa fa-desktop"></i> Dashboard</a></li>
+    <li><a href="{!! asset('/') !!}"><i class="fa fa-credit-card"></i> Punto de venta</a></li>
+    <li><a href="{!! asset('/') !!}"><i class="fa fa-barcode"></i> Almacén</a></li>
+    <li class="{{(Request::path()=='Catalogos')?'active':''}}">
+      <a href="{!! asset('/Catalogos') !!}"><i class="fa fa-tags"></i> Catálogos</a>
+    </li>
     <li><a href="{!! asset('/') !!}"><i class="fa fa-tasks"></i> Reportes</a></li>
     <li><a href="{!! asset('/logout') !!}"><i class="fa fa-sign-out"></i> Cerrar Sesión</a></li>
   </ul>

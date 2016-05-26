@@ -34,3 +34,10 @@ View::composer(array('template.base', 'modulos.inicio.inicio'), function($view){
 	$avatar = (Auth::user()->avatar == '')? '/img/avatar.jpg' : Auth::user()->avatar;
 	$view->with('avatar', $avatar);
 });
+
+/**
+|--------------------------------------------------------------------------
+| Módulos
+|--------------------------------------------------------------------------
+*/
+Route::get('/Catalogos', ['middleware' => 'auth', 'uses' => 'ModulosController@catalogos']);
