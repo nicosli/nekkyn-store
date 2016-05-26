@@ -36,26 +36,7 @@
     </div>
 
     @include('menu')
-
-    <!--<div class="topMenu">
-        <div class="wrapper-breadcrumb pull-left">
-            <ol class="breadcrumb">
-              <li><a href="#">Home</a></li>
-              <li class="active">Dashboard</li>
-            </ol>
-        </div>
-        <div class="pull-right">
-            <div class="avatar">
-                <div class="pull-left">
-                    <img class="av" src="{!! asset($avatar) !!}" />
-                </div>
-                <div class="pull-right sp">
-                    <span>Hola <strong>{!! Auth::user()->nickname !!} </strong></span>                    
-                </div>
-            </div>
-        </div>
-    </div>-->
-
+    
     <div class="contenido">
         @yield('contenido')        
     </div>
