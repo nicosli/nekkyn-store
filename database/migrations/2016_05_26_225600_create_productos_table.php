@@ -18,7 +18,6 @@ class CreateProductosTable extends Migration
             $table->foreign('categoria_id')->references('id')->on('categorias')->onDelete('cascade');
             $table->integer('color_id')->unsigned();
             $table->foreign('color_id')->references('id')->on('colores');
-            $table->rememberToken();
             $table->timestamps();    
         });
     }
