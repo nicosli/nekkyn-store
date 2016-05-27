@@ -12,7 +12,7 @@
 @endsection
 @section('contenido')
 <div class="wrapp-inicio">
-	<h2 class="h2TitMod"><i class="fa fa-truck fah2"></i> Tabla de Usuarios</h2>
+	<h2 class="h2TitMod"><i class="fa fa-users fah2"></i> Tabla de Usuarios</h2>
 	<p>
 		El módulo de Usuarios esta diseñado para agregar a todas las peronas que 
 		necesiten tener acceso al sistema
