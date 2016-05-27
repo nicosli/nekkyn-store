@@ -16,8 +16,11 @@ class CreateProveedoresTable extends Migration
             $table->increments('id');
             $table->char('nombre', 50);
             $table->char('telefono', 50);
+            $table->string('email')->unique();
             $table->timestamps();
         });
+
+        Schema::enableForeignKeyConstraints();
     }
 
     /**

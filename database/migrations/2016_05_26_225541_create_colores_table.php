@@ -18,6 +18,8 @@ class CreateColoresTable extends Migration
             $table->integer('estado');
             $table->timestamps();
         });
+
+        Schema::enableForeignKeyConstraints();
     }
 
     /**

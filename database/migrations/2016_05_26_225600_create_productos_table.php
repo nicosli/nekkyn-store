@@ -27,6 +27,9 @@ class CreateProductosTable extends Migration
             $table->string('descripcion');
             $table->timestamps();    
         });
+
+        Schema::enableForeignKeyConstraints();
+
     }
 
     /**
