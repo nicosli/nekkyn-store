@@ -25,11 +25,8 @@ class CreateProductosTable extends Migration
             $table->integer('talla');
             $table->string('descripcion');
             $table->integer('estado');
-            $table->timestamps();    
+            $table->timestamps();
         });
-
-        Schema::enableForeignKeyConstraints();
-
     }
 
     /**
