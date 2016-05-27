@@ -7,6 +7,7 @@ use App\Models\Reservaciones;
 use App\Categoria;
 use App\Color;
 use App\Proveedor;
+use App\User;
 
 class ModulosController extends Controller{
 	public static function inicio(){		
@@ -28,6 +29,14 @@ class ModulosController extends Controller{
 
 		return view('modulos.proveedores.inicio', array(
 			'proveedores' => $proveedores
+		));
+	}
+
+	public static function usuarios(){
+		$usuarios = User::all();
+
+		return view('modulos.usuarios.inicio', array(
+			'usuarios' => $usuarios
 		));
 	}
 

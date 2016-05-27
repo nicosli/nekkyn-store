@@ -1,48 +1,47 @@
 @extends('template.base')
 @section('titulo')
-	Nekkyn - Proveedores
+	Nekkyn - Usuarios
 @endsection
 @section('breadcrumb')
 <div class="wrapper-breadcrumb pull-left">
     <ol class="breadcrumb">
       <li><a href="{!! asset('/') !!}">Home</a></li>
-      <li class="active">Proveedores</li>
+      <li class="active">Usuarios</li>
     </ol>
 </div>
 @endsection
 @section('contenido')
 <div class="wrapp-inicio">
-	<h2 class="h2TitMod"><i class="fa fa-truck fah2"></i> Tabla de Proveedores</h2>
+	<h2 class="h2TitMod"><i class="fa fa-truck fah2"></i> Tabla de Usuarios</h2>
 	<p>
-		El módulo de Proveedores esta diseñado para agregar todos los Proveedores que necesitemos
-		usar para nuestros productos. Ver menú 
-		<a href="{!! asset('/Almacen') !!}">Almacen</a>
+		El módulo de Usuarios esta diseñado para agregar a todas las peronas que 
+		necesiten tener acceso al sistema
 	</p>
 
 	<ul class="nav nav-tabs tabsJs">
-		<li role="presentation" class="active"><a href="#proveedores">Proveedores</a></li>
+		<li role="presentation" class="active"><a href="#usuarios">Usuarios</a></li>
 	</ul>
 	<div class="tab-content">
-		<div id="proveedores" class="tab-pane fade in active">
-			<div class="titTab"><i class="fa fa-angle-right"></i> Tabla Proveedores</div>
+		<div id="usuarios" class="tab-pane fade in active">
+			<div class="titTab"><i class="fa fa-angle-right"></i> Tabla Usuarios</div>
 			<button type="button" class="btn btn-primary btn-sm btn-add">Agregar</button>
 			<div class="table-responsive">
 			<table class="table table-striped">
 				<tr>
 					<th>id</th>
-					<th>nombre</th>
-					<th>Representante</th>
-					<th>Teléfono</th>
+					<th>Nombre</th>
+					<th>Nickname</th>
 					<th>Correo</th>
+					<th>id social</th>
 					<th>Estado</th>
 				</tr>
-				@foreach($proveedores as $ind => $val)
+				@foreach($usuarios as $ind => $val)
 				<tr>
 					<td>{!! $val->id !!}</td>
-					<td>{!! $val->nombre !!}</td>
-					<td>{!! $val->representante !!}</td>
-					<td>{!! $val->telefono !!}</td>
+					<td>{!! $val->name !!}</td>
+					<td>{!! $val->nickname !!}</td>
 					<td>{!! $val->email !!}</td>
+					<td>{!! $val->idSocial !!}</td>
 					<td>
 						<span class="label label-{!!($val->estado == 1)?'success':'default'!!}">
 							{!! ($val->estado == 1)?'activo':'baja' !!}

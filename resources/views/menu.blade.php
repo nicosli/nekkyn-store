@@ -31,8 +31,16 @@
                 <i class="fa fa-bar-chart"></i> Reportes
             </a>
         </li>
+    </ul>
+    <div class="menuTit">Acciones</div>
+    <ul class="nav navmenu-nav">
+        <li class="{{(Request::path()=='Usuarios')?'active':''}}">
+            <a href="{!! asset('/Usuarios') !!}">
+                <i class="fa fa-users"></i> Usuarios
+            </a>
+        </li>
         <li>
-            <a href="{!! asset('/logout') !!}">
+            <a href="{!! asset('/logout') !!}" class="salirLink">
                 <i class="fa fa-sign-out"></i> Cerrar Sesión
             </a>
         </li>

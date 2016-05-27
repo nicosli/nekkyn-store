@@ -27,6 +27,7 @@
 		<div id="categorias" class="tab-pane fade in active">
 			<div class="titTab"><i class="fa fa-angle-right"></i> Tabla Categorias</div>
 			<button type="button" class="btn btn-primary btn-sm btn-add">Agregar</button>
+			<div class="table-responsive">
 			<table class="table table-striped">
 				<tr>
 					<th>id</th>
@@ -47,10 +48,12 @@
 				</tr>
 				@endforeach
 			</table>
+			</div>
 		</div>
 		<div id="colores" class="tab-pane fade">
 			<div class="titTab"><i class="fa fa-angle-right"></i> Tabla Colores</div>
 			<button type="button" class="btn btn-primary btn-sm btn-add">Agregar</button>
+			<div class="table-responsive">
 			<table class="table table-striped">
 				<tr>
 					<th>id</th>
@@ -71,6 +74,7 @@
 				</tr>
 				@endforeach
 			</table>
+			</div>
 		</div>	
 	</div>
 </div>

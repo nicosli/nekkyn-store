@@ -436,6 +436,11 @@ p{
 .btn-add{
 	margin-bottom: 12px;
 }
+.salirLink{
+	color: #F44336 !important;
+    font-weight: 500;
+    text-transform: uppercase;
+}
 
 @media (max-width: 522px){
 	.padAv{
