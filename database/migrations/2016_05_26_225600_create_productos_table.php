@@ -18,8 +18,8 @@ class CreateProductosTable extends Migration
             $table->foreign('categoria_id')->references('id')->on('categorias');
             $table->integer('color_id')->unsigned();
             $table->foreign('color_id')->references('id')->on('colores');
-            //$table->integer('proveedor_id')->unsigned();
-            //$table->foreign('proveedor_id')->references('id')->on('proveedores');             
+            $table->integer('proveedor_id')->unsigned();
+            $table->foreign('proveedor_id')->references('id')->on('proveedores');             
             $table->decimal('costo', 5, 2);
             $table->decimal('precio_publico', 5,2);
             $table->integer('talla');
