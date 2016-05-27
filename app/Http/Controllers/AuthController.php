@@ -1,7 +1,7 @@
 <?php 
 namespace App\Http\Controllers;
-use App\Models\Users;
 use Socialite;
+use App\User;
 
 
 class AuthController extends Controller
@@ -27,7 +27,7 @@ class AuthController extends Controller
     	if($error != "access_denied"){
         	$user = Socialite::driver('facebook')->user();
         	
-            $us = Users::find( \Auth::user()->id );
+            $us = User::find( \Auth::user()->id );
             $us->avatar = $user->getAvatar();
             $us->idSocial = $user->getId();
             $us->save();

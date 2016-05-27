@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 use App\Models\Colores;
 use DB;
 use App\Models\Reservaciones;
+use App\Categoria;
+use App\Color;
+use App\Proveedor;
 
 class ModulosController extends Controller{
 	public static function inicio(){		
@@ -11,7 +14,21 @@ class ModulosController extends Controller{
 	}
 
 	public static function catalogos(){
-		return view('modulos.catalogos.inicio');
+		$categorias = Categoria::all();
+		$colores = Color::all();
+
+		return view('modulos.catalogos.inicio', array(
+			'categorias' => $categorias,
+			'colores'	=> $colores
+		));
+	}
+
+	public static function proveedores(){
+		$proveedores = Proveedor::all();
+
+		return view('modulos.proveedores.inicio', array(
+			'proveedores' => $proveedores
+		));
 	}
 
 }
