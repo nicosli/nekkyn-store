@@ -26,6 +26,11 @@
                 <i class="fa fa-truck"></i> Proveedores
             </a>
         </li>
+        <li class="{{(Request::path()=='Clientes')?'active':''}}">
+            <a href="{!! asset('/Clientes') !!}">
+                <i class="fa fa-heart"></i> Clientes
+            </a>
+        </li>
         <li>
             <a href="{!! asset('/') !!}">
                 <i class="fa fa-bar-chart"></i> Reportes
@@ -42,6 +47,24 @@
         <li>
             <a href="{!! asset('/logout') !!}" class="salirLink">
                 <i class="fa fa-sign-out"></i> Cerrar Sesión
+            </a>
+        </li>
+    </ul>
+    <div class="menuTit">Contabiliadad</div>
+    <ul class="nav navmenu-nav">
+        <li class="{{(Request::path()=='cxc')?'active':''}}">
+            <a href="{!! asset('/cxc') !!}">
+                <i class="fa fa-money"></i> Cuentas por Pagar
+            </a>
+        </li>
+        <li class="{{(Request::path()=='cxc')?'active':''}}">
+            <a href="{!! asset('/cxc') !!}">
+                <i class="fa fa-money"></i> Cuentas por Cobrar
+            </a>
+        </li>
+        <li class="{{(Request::path()=='Facturacion')?'active':''}}">
+            <a href="{!! asset('/Facturacion') !!}">
+                <i class="fa fa-bars"></i> Facturación
             </a>
         </li>
     </ul>
