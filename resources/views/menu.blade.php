@@ -8,7 +8,7 @@
         </li>
         <li>
             <a href="{!! asset('/') !!}">
-                <i class="fa fa-credit-card"></i> Punto de venta
+                <i class="fa fa-shopping-bag"></i> Punto de venta
             </a>
         </li>
         <li>
@@ -54,17 +54,17 @@
     <ul class="nav navmenu-nav">
         <li class="{{(Request::path()=='cxc')?'active':''}}">
             <a href="{!! asset('/cxc') !!}">
-                <i class="fa fa-money"></i> Cuentas por Pagar
+                <i class="fa fa-fire-extinguisher"></i> Cuentas por Pagar
             </a>
         </li>
         <li class="{{(Request::path()=='cxc')?'active':''}}">
             <a href="{!! asset('/cxc') !!}">
-                <i class="fa fa-money"></i> Cuentas por Cobrar
+                <i class="fa fa-magnet"></i> Cuentas por Cobrar
             </a>
         </li>
         <li class="{{(Request::path()=='Facturacion')?'active':''}}">
             <a href="{!! asset('/Facturacion') !!}">
-                <i class="fa fa-bars"></i> Facturación
+                <i class="fa fa-file-pdf-o"></i> Facturación
             </a>
         </li>
     </ul>

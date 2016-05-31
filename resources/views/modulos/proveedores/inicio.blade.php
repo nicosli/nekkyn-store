@@ -30,7 +30,7 @@
 			<table class="table table-striped">
 				<tr>
 					<th>id</th>
-					<th>nombre</th>
+					<th>Nombre</th>
 					<th>Representante</th>
 					<th>Teléfono</th>
 					<th>Correo</th>
@@ -51,6 +51,9 @@
 				</tr>
 				@endforeach
 			</table>
+
+			{!! $proveedores->links() !!}
+
 			</div>
 		</div>	
 	</div>

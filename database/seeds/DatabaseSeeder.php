@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use Faker\Factory as Faker;
 
 class DatabaseSeeder extends Seeder
 {
@@ -97,5 +98,20 @@ class DatabaseSeeder extends Seeder
             'telefono'          => '9981271444',
             'email'             => 'yasurynavarrete1@hotmail.com'
         ]);
+
+        /*---- Clientes ----*/
+        $faker = Faker::create();
+        foreach (range(1,50) as $index) {
+            DB::table('clientes')->insert([
+                'estado'        => 1,
+                'nombre'        => $faker->name,
+                'apellido'      => $faker->lastName,
+                'email'         => $faker->email,
+                'telefono'      => $faker->phoneNumber,
+                'celular'       => $faker->phoneNumber,
+                'comentario'    => $faker->paragraph,
+                'direccion'     => $faker->address
+            ]);
+        }
     }
 }

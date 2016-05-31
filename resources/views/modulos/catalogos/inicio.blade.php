@@ -31,7 +31,7 @@
 			<table class="table table-striped">
 				<tr>
 					<th>id</th>
-					<th>nombre</th>
+					<th>Nombre</th>
 					<th>Descripción</th>
 					<th>Estado</th>
 				</tr>
@@ -48,6 +48,9 @@
 				</tr>
 				@endforeach
 			</table>
+
+			{!! $categorias->links() !!}
+
 			</div>
 		</div>
 		<div id="colores" class="tab-pane fade">
@@ -57,7 +60,7 @@
 			<table class="table table-striped">
 				<tr>
 					<th>id</th>
-					<th>nombre</th>
+					<th>Nombre</th>
 					<th>Descripción</th>
 					<th>Estado</th>
 				</tr>
@@ -74,6 +77,9 @@
 				</tr>
 				@endforeach
 			</table>
+
+			{!! $colores->links() !!}
+
 			</div>
 		</div>	
 	</div>

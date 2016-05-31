@@ -43,3 +43,4 @@ View::composer(array('template.base', 'modulos.inicio.inicio'), function($view){
 Route::get('/Catalogos', ['middleware' => 'auth', 'uses' => 'ModulosController@catalogos']);
 Route::get('/Proveedores', ['middleware' => 'auth', 'uses' => 'ModulosController@proveedores']);
 Route::get('/Usuarios', ['middleware' => 'auth', 'uses' => 'ModulosController@usuarios']);
+Route::get('/Clientes', ['middleware' => 'auth', 'uses' => 'ModulosController@clientes']);

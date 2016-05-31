@@ -8,6 +8,7 @@ use App\Categoria;
 use App\Color;
 use App\Proveedor;
 use App\User;
+use App\Cliente;
 
 class ModulosController extends Controller{
 	public static function inicio(){		
@@ -15,8 +16,8 @@ class ModulosController extends Controller{
 	}
 
 	public static function catalogos(){
-		$categorias = Categoria::all();
-		$colores = Color::all();
+		$categorias = Categoria::paginate(10);
+		$colores = Color::paginate(10);
 
 		return view('modulos.catalogos.inicio', array(
 			'categorias' => $categorias,
@@ -25,7 +26,7 @@ class ModulosController extends Controller{
 	}
 
 	public static function proveedores(){
-		$proveedores = Proveedor::all();
+		$proveedores = Proveedor::paginate(10);
 
 		return view('modulos.proveedores.inicio', array(
 			'proveedores' => $proveedores
@@ -33,10 +34,18 @@ class ModulosController extends Controller{
 	}
 
 	public static function usuarios(){
-		$usuarios = User::all();
+		$usuarios = User::paginate(10);
 
 		return view('modulos.usuarios.inicio', array(
 			'usuarios' => $usuarios
+		));
+	}
+
+	public static function clientes(){
+		$clientes = Cliente::paginate(10);
+
+		return view('modulos.clientes.inicio', array(
+			'clientes' => $clientes
 		));
 	}
 
