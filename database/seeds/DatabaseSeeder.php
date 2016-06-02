@@ -16,7 +16,7 @@ class DatabaseSeeder extends Seeder
         DB::table('users')->insert([
             'name'     => 'Nicolas Navarrete Clemente',
             'nickname' => 'nicosli',
-            'email'    => 'nicosli@gmail.com',
+            'email'    => 'nnavarrete@devcomer.com',
             'password' => bcrypt('tamales'),
             'avatar'   => 'https://graph.facebook.com/v2.6/1396397923710124/picture?type=normal',
             'estado'   => 1,
@@ -26,7 +26,7 @@ class DatabaseSeeder extends Seeder
         DB::table('users')->insert([
             'name'     => 'Abril Rosado Huerta',
             'nickname' => 'lirba',
-            'email'    => 'lirba304@hotmail.com',
+            'email'    => 'arosado@devcomer.com',
             'estado'   => 1,
             'password' => bcrypt('atardecer3004'),
         ]);
