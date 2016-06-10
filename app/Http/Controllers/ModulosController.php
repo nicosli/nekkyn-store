@@ -9,19 +9,27 @@ use App\Color;
 use App\Proveedor;
 use App\User;
 use App\Cliente;
+use App\Producto;
+use App\Talla;
 
 class ModulosController extends Controller{
-	public static function inicio(){		
-		return view('modulos.inicio.inicio');
+	public static function inicio(){
+		$totalPiezas = Producto::sum('existencia');
+
+		return view('modulos.inicio.inicio', array(
+			'totalPiezas' => $totalPiezas
+		));
 	}
 
 	public static function catalogos(){
 		$categorias = Categoria::paginate(10);
 		$colores = Color::paginate(10);
+		$tallas = Talla::paginate(10);
 
 		return view('modulos.catalogos.inicio', array(
 			'categorias' => $categorias,
-			'colores'	=> $colores
+			'colores'	=> $colores,
+			'tallas'	=> $tallas
 		));
 	}
 
@@ -43,10 +51,23 @@ class ModulosController extends Controller{
 
 	public static function clientes(){
 		$clientes = Cliente::paginate(10);
-
+		
 		return view('modulos.clientes.inicio', array(
 			'clientes' => $clientes
 		));
+	}
+
+	public static function productos(){
+		$productos = Producto::paginate(10);
+
+		return view('modulos.productos.inicio', array(
+			'productos' => $productos
+		));
+	}
+
+	public static function puntoDeVenta(){
+
+		return view('modulos.puntoDeVenta.inicio');
 	}
 
 }

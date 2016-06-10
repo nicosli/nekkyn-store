@@ -16,7 +16,7 @@
 	<p>
 		El módulo de Clientes esta diseñado para agregar todos los Clientes que necesitemos
 		usar para la venta de nuestros productos
-		<a href="{!! asset('/Almacen') !!}">Almacen</a>
+		<a href="{!! asset('/Productos') !!}">Productos</a>
 	</p>
 
 	<ul class="nav nav-tabs tabsJs">

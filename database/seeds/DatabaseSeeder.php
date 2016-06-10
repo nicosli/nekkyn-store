@@ -52,11 +52,6 @@ class DatabaseSeeder extends Seeder
             'nombre'       => 'Niñas',
             'descripcion'  => 'Categoría para la ropa de Niñas'
         ]);
-        DB::table('categorias')->insert([
-            'estado'       => 0,
-            'nombre'       => '3era edad',
-            'descripcion'  => 'Categoría para la ropa de 3era edad'
-        ]);
 
         /*---- Colores ----*/
         DB::table('colores')->insert([
@@ -90,18 +85,33 @@ class DatabaseSeeder extends Seeder
             'descripcion'  => 'Color definido Amarillo'
         ]);
 
+        $faker = Faker::create();
+
         /*---- Proveedores ----*/
-        DB::table('proveedores')->insert([
-            'estado'            => 1,
-            'nombre'            => 'Nekkyn Chetumal',
-            'representante'     => 'Eva Clemente Perez',
-            'telefono'          => '9981271444',
-            'email'             => 'yasurynavarrete1@hotmail.com'
-        ]);
+        foreach(range(1,10) as $index){
+            DB::table('proveedores')->insert([
+                'estado'            => 1,
+                'nombre'            => $faker->company,
+                'representante'     => $faker->name,
+                'telefono'          => $faker->phoneNumber,
+                'email'             => $faker->email,
+                'direccion'         => $faker->address
+            ]);
+        }
+
+        /*---- Tallas ----*/
+        foreach(range(18,46) as $index){
+            if($index % 2 == 0){
+                DB::table('tallas')->insert([
+                    'estado' => 1,
+                    'nombre' => $index,
+                    'descripcion' => 'talla '.$index 
+                ]);                       
+            }
+        }        
 
         /*---- Clientes ----*/
-        $faker = Faker::create();
-        foreach (range(1,50) as $index) {
+        foreach (range(1,80) as $index) {
             DB::table('clientes')->insert([
                 'estado'        => 1,
                 'nombre'        => $faker->name,
@@ -111,6 +121,52 @@ class DatabaseSeeder extends Seeder
                 'celular'       => $faker->phoneNumber,
                 'comentario'    => $faker->paragraph,
                 'direccion'     => $faker->address
+            ]);
+        }
+
+        /*---- Productos ----*/
+        $categorias = DB::table('categorias')->get();
+        $colores = DB::table('colores')->get();
+        $proveedores = DB::table('proveedores')->get();
+        $tallas = DB::table('tallas')->get();
+        $productos = array(
+            "Huipil encaje",
+            "Huayma Reilete",
+            "Guayabera Deshilada Tekit",
+            "Vestido Despunte",
+            "Vestido Merida",
+            "Camisa tekit combinada",
+            "Vestido itzayana",
+            "Camisa Chino",
+            "Huayma Matizado",
+            "Blusa Frida",
+            "Vestido Georgina",
+            "Blusa Araña",
+            "Guayabera combinada de Dama",
+            "Blusa Mestiza",
+            "Blusa bolitas",
+            "Blusa tekit",
+            "Blusa espiga",
+            "Blusa Citilcum",
+            "Guayabera Niño",
+            "Pantalón"
+        );
+
+        foreach(range(0,count($productos)-1) as $index){
+            $costo = rand(150, 800);
+            $precio_publico = $costo * 2;
+            DB::table('productos')->insert([
+                'estado'            => 1,
+                'nombre'            => $productos[$index],
+                'categoria_id'      => $categorias[rand(0, count($categorias)-1)]->id,
+                'color_id'          => $colores[rand(0, count($colores)-1)]->id,
+                'proveedor_id'      => $proveedores[rand(0, count($proveedores)-1)]->id,
+                'talla_id'          => $tallas[rand(0, count($tallas)-1)]->id,
+                'existencia'        => rand(20, 50),
+                'costo'             => $costo,
+                'precio_publico'    => $precio_publico,
+                'descripcion'       => $faker->paragraph,
+                'barcode'           => $faker->ean13
             ]);
         }
     }

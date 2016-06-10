@@ -16,7 +16,7 @@
 	<p>
 		El módulo de Proveedores esta diseñado para agregar todos los Proveedores que necesitemos
 		usar para nuestros productos. Ver menú 
-		<a href="{!! asset('/Almacen') !!}">Almacen</a>
+		<a href="{!! asset('/Productos') !!}">Productos</a>
 	</p>
 
 	<ul class="nav nav-tabs tabsJs">
@@ -34,6 +34,7 @@
 					<th>Representante</th>
 					<th>Teléfono</th>
 					<th>Correo</th>
+					<th>Dirección</th>
 					<th>Estado</th>
 				</tr>
 				@foreach($proveedores as $ind => $val)
@@ -43,6 +44,7 @@
 					<td>{!! $val->representante !!}</td>
 					<td>{!! $val->telefono !!}</td>
 					<td>{!! $val->email !!}</td>
+					<td>{!! $val->direccion !!}</td>
 					<td>
 						<span class="label label-{!!($val->estado == 1)?'success':'default'!!}">
 							{!! ($val->estado == 1)?'activo':'baja' !!}

@@ -443,6 +443,25 @@ p{
     font-weight: 500;
     text-transform: uppercase;
 }
+.clear-left{
+	clear: left;
+}
+.overflow-hidden{
+	overflow: hidden;
+}
+.wrap-stats{
+	margin-top: 10px;
+}
+.tits{
+	font-size: 18px;
+}
+.tits .fa{
+	color: #9d9d9d;
+}
+.mt15{
+	margin-top: 15px;
+}
+
 
 @media (max-width: 522px){
 	.padAv{

@@ -16,12 +16,13 @@
 	<p>
 		El módulo de catálogos esta diseñado para agregar todos los términos que necesitemos
 		usar para nuestros productos. Ver menú 
-		<a href="{!! asset('/Almacen') !!}">Almacen</a>
+		<a href="{!! asset('/Productos') !!}">Productos</a>
 	</p>
 
 	<ul class="nav nav-tabs tabsJs">
 		<li role="presentation" class="active"><a href="#categorias">Categorías</a></li>
 		<li role="presentation"><a href="#colores">Colores</a></li>
+		<li role="presentation"><a href="#tallas">Tallas</a></li>
 	</ul>
 	<div class="tab-content">
 		<div id="categorias" class="tab-pane fade in active">
@@ -81,7 +82,36 @@
 			{!! $colores->links() !!}
 
 			</div>
-		</div>	
+		</div>
+		<div id="tallas" class="tab-pane fade in">
+			<div class="titTab"><i class="fa fa-angle-right"></i> Tabla Tallas</div>
+			<button type="button" class="btn btn-primary btn-sm btn-add">Agregar</button>
+			<div class="table-responsive">
+			<table class="table table-striped">
+				<tr>
+					<th>id</th>
+					<th>Talla</th>
+					<th>Descripción</th>
+					<th>Estado</th>
+				</tr>
+				@foreach($tallas as $ind => $val)
+				<tr>
+					<td>{!! $val->id !!}</td>
+					<td>{!! $val->nombre !!}</td>
+					<td>{!! $val->descripcion !!}</td>
+					<td>
+						<span class="label label-{!!($val->estado == 1)?'success':'default'!!}">
+							{!! ($val->estado == 1)?'activo':'baja' !!}
+						</span>
+					</td>
+				</tr>
+				@endforeach
+			</table>
+
+			{!! $tallas->links() !!}
+
+			</div>
+		</div>
 	</div>
 </div>
 @endsection

@@ -44,3 +44,5 @@ Route::get('/Catalogos', ['middleware' => 'auth', 'uses' => 'ModulosController@c
 Route::get('/Proveedores', ['middleware' => 'auth', 'uses' => 'ModulosController@proveedores']);
 Route::get('/Usuarios', ['middleware' => 'auth', 'uses' => 'ModulosController@usuarios']);
 Route::get('/Clientes', ['middleware' => 'auth', 'uses' => 'ModulosController@clientes']);
+Route::get('/Productos', ['middleware' => 'auth', 'uses' => 'ModulosController@productos']);
+Route::get('/PuntoDeVenta', ['middleware' => 'auth', 'uses' => 'ModulosController@puntoDeVenta']);

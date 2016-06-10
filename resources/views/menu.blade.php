@@ -6,14 +6,14 @@
                 <i class="fa fa-desktop"></i> Dashboard
             </a>
         </li>
-        <li>
-            <a href="{!! asset('/') !!}">
+        <li class="{{(Request::path()=='PuntoDeVenta')?'active':''}}">
+            <a href="{!! asset('/PuntoDeVenta') !!}">
                 <i class="fa fa-shopping-bag"></i> Punto de venta
             </a>
         </li>
-        <li>
-            <a href="{!! asset('/') !!}">
-                <i class="fa fa-barcode"></i> Almacén
+        <li class="{{(Request::path()=='Productos')?'active':''}}">
+            <a href="{!! asset('/Productos') !!}">
+                <i class="fa fa-barcode"></i> Productos
             </a>
         </li>
         <li class="{{(Request::path()=='Catalogos')?'active':''}}">
