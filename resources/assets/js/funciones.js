@@ -1,14 +1,25 @@
 $(document).ready(function(){
+	/*---- Navs -----*/
 	$('.tabsJs a').click(function (e) {
 	  e.preventDefault()
 	  $(this).tab('show')
 	})
+
+	/*---- ToolTip -----*/
+	$('.navmenu a[data-toggle="tooltip"]').tooltip({
+		animated : 'fade',
+		placement : 'right',
+		container: 'body'
+	});
+
+	/*---- Colapsar Menu -----*/
 	var statusDropDown = false;
 	$('.dropdown.keep-open').on({
 	    "shown.bs.dropdown": function() { statusDropDown = false; },
 	    "click":             function() { statusDropDown = true; },
 	    "hide.bs.dropdown":  function() { return statusDropDown; }
 	});
+	$('.navmenu a[data-toggle="tooltip"]').tooltip('disable');
 	$(".colpase-menu").click(function(){
 		status = $(this).attr('data');
 		if(status == 1){
@@ -20,6 +31,7 @@ $(document).ready(function(){
 			$(".wrapp-colapse-menu").css("width", "50px");
 			$(".wrapp-colapse-menu").css("text-align", "center");
 			$(".colpase-menu i").removeClass('fa-angle-double-left').addClass('fa-angle-double-right');
+			$('.navmenu a[data-toggle="tooltip"]').tooltip('enable');
 			status = 0;
 		}else if(status == 0){
 			$("body").removeClass("colapsado").addClass("expandido");
@@ -30,8 +42,10 @@ $(document).ready(function(){
 			$(".wrapp-colapse-menu").css("width", "240px");
 			$(".wrapp-colapse-menu").css("text-align", "right");
 			$(".colpase-menu i").removeClass('fa-angle-double-right').addClass('fa-angle-double-left');
+			$('.navmenu a[data-toggle="tooltip"]').tooltip('disable');
 			status = 1;
 		}
 		$(this).attr('data', status);
+		return false;
 	});
 });
