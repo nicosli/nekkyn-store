@@ -31,10 +31,18 @@
                 <i class="fa fa-heart"></i> Clientes
             </a>
         </li>
-        <li>
-            <a href="{!! asset('/') !!}">
-                <i class="fa fa-bar-chart"></i> Reportes
+        <li class="dropdown {!! Util::menuActive(Request::path(), 'Reportes', 'keep-open open') !!}">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                <i class="fa fa-bar-chart"></i> Reportes <b class="caret"></b>
             </a>
+            <ul class="dropdown-menu navmenu-nav" role="menu">
+                <li class="{{(Request::path()=='Reportes/Ventas')?'active':''}}">
+                    <a href="{!! asset('/Reportes/Ventas') !!}">
+                    <i class="fa fa-caret-right"></i> Ventas</a>
+                </li>
+                <li><a href="{!! asset('/') !!}"><i class="fa fa-caret-right"></i> Comisiones</a></li>
+                <li><a href="{!! asset('/') !!}"><i class="fa fa-caret-right"></i> Inventario</a></li>
+            </ul>
         </li>
     </ul>
     <div class="menuTit">Acciones</div>

@@ -43,7 +43,7 @@
 					<td>{!! $val->nombre !!}</td>
 					<td>{!! $val->apellido !!}</td>
 					<td>{!! $val->email !!}</td>
-					<td>{!! $val->direccion !!}</td>
+					<td>{!! Util::recortar($val->direccion,20) !!}...</td>
 					<td>{!! $val->celular !!}</td>
 					<td>
 						<span class="label label-{!!($val->estado == 1)?'success':'default'!!}">

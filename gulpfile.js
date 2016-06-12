@@ -13,7 +13,7 @@ var elixir = require('laravel-elixir');
 
 elixir(function(mix) {
     mix.scripts([
-		'/bower/jquery/jquery.min.js',
+		'/bower/jquery/dist/jquery.min.js',
 		'/bower/jquery-backstretch/jquery.backstretch.min.js',
 		'js/script.js'
 	 ], 'public/js/vendor_login.js', 'resources/assets' );
@@ -27,9 +27,7 @@ elixir(function(mix) {
 
 
 	mix.scripts([
-		'/bower/jquery/jquery.min.js',
-		'/bower/moment/min/moment.min.js',
-		'/bower/bootstrap-daterangepicker/daterangepicker.js',
+		'/bower/jquery/dist/jquery.min.js',
 		'/bower/bootstrap/dist/js/bootstrap.min.js',
 		'/bower/jasny-bootstrap/dist/js/jasny-bootstrap.min.js',
 		'/js/funciones.js'

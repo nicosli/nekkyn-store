@@ -44,7 +44,7 @@
 					<td>{!! $val->representante !!}</td>
 					<td>{!! $val->telefono !!}</td>
 					<td>{!! $val->email !!}</td>
-					<td>{!! $val->direccion !!}</td>
+					<td>{!! Util::recortar($val->direccion,20) !!}...</td>
 					<td>
 						<span class="label label-{!!($val->estado == 1)?'success':'default'!!}">
 							{!! ($val->estado == 1)?'activo':'baja' !!}
