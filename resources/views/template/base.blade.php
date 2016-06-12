@@ -11,7 +11,7 @@
         <link href="{!! asset('css/vendor_base.css') !!}" rel="stylesheet" type="text/css" />
 
     </head>
-    <body>
+    <body class="expandido">
 
     <div class="headTop">
         <div class="pull-left">

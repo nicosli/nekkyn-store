@@ -34,9 +34,12 @@ body {
 }
 
 @media (min-width: 992px) {
-  body {
+  .expandido{
     padding: 0 0 0 240px;
   }
+  .colapsado{
+    padding: 0 0 0 50px;
+  } 
   .navmenu {
     padding-top: 0;
   }

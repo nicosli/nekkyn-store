@@ -27,7 +27,7 @@
 			@endif
 		</div>
 	</div>
-	<div class="clear-left tits mt15"><i class="fa fa-area-chart"></i> Estadísticas</div>
+	<div class="clear-left tits mt15"><i class="fa fa-area-chart"></i> Reporte Ejecutivo</div>
 	<div class="wrap-stats">
 		<div class="panel panel-default">
 			<div class="panel-body">

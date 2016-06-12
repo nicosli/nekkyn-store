@@ -177,6 +177,19 @@ p{
 .dropdown-menu>.active>a, .dropdown-menu>.active>a:focus, .dropdown-menu>.active>a:hover{
 	background-color: #4D94C5;
 }
+.wrapp-colapse-menu{
+	position: fixed;
+    bottom: 0;
+    background: #FFFEF4;
+    padding: 11px;
+    width: 240px;
+    text-align: right;
+    border-right: 1px solid #DDD;
+    border-top: 1px solid #DDD;
+}
+.colpase-menu:active, .colpase-menu:hover, .colpase-menu:focus{
+	text-decoration: none !important;
+}
 
 @media (max-width: 522px){
 	.padAv{
@@ -190,5 +203,10 @@ p{
 	}
 	.blueBackLeft{
 		width: auto;
+	}
+}
+@media (max-width: 992px){
+	.wrapp-colapse-menu{
+		display: none;
 	}
 }
