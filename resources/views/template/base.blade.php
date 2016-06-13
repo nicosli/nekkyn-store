@@ -36,6 +36,8 @@
         @yield('contenido')        
     </div>
     
+    @yield('script')    
     <script src="{!! asset( 'js/vendor_base.js' ) !!}"></script>
+
     </body>
 </html>

@@ -23,6 +23,7 @@
 		<li role="presentation" class="active"><a href="#categorias">Categorías</a></li>
 		<li role="presentation"><a href="#colores">Colores</a></li>
 		<li role="presentation"><a href="#tallas">Tallas</a></li>
+		<li role="presentation"><a href="#metodospago">Métodos de Pago</a></li>
 	</ul>
 	<div class="tab-content">
 		<div id="categorias" class="tab-pane fade in active">
@@ -109,6 +110,35 @@
 			</table>
 
 			{!! $tallas->links() !!}
+
+			</div>
+		</div>
+		<div id="metodospago" class="tab-pane fade in">
+			<div class="titTab"><i class="fa fa-angle-right"></i> Tabla Métodos de Pago</div>
+			<button type="button" class="btn btn-primary btn-sm btn-add">Agregar</button>
+			<div class="table-responsive">
+			<table class="table table-striped">
+				<tr>
+					<th>id</th>
+					<th>Nombre</th>
+					<th>Descripción</th>
+					<th>Estado</th>
+				</tr>
+				@foreach($metodospago as $ind => $val)
+				<tr>
+					<td>{!! $val->id !!}</td>
+					<td>{!! $val->nombre !!}</td>
+					<td>{!! $val->descripcion !!}</td>
+					<td>
+						<span class="label label-{!!($val->estado == 1)?'success':'default'!!}">
+							{!! ($val->estado == 1)?'activo':'baja' !!}
+						</span>
+					</td>
+				</tr>
+				@endforeach
+			</table>
+
+			{!! $metodospago->links() !!}
 
 			</div>
 		</div>

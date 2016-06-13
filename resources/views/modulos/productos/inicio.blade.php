@@ -50,8 +50,8 @@
 					<td>{!! $val->proveedor['nombre'] !!}</td>
 					<td>{!! $val->talla['nombre'] !!}</td>
 					<td>{!! $val->existencia !!}</td>
-					<td>$ MXN <strong>{!! number_format($val->costo, 2) !!}</strong></td>
-					<td>$ MXN <strong>{!! number_format($val->precio_publico, 2) !!}</strong></td>
+					<td>MXN $ <strong>{!! number_format($val->costo, 2) !!}</strong></td>
+					<td>MXN $ <strong>{!! number_format($val->precio_publico, 2) !!}</strong></td>
 					<td>{!! $val->barcode !!}</td>
 					<td>
 						<span class="label label-{!!($val->estado == 1)?'success':'default'!!}">

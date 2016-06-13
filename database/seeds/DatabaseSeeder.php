@@ -88,6 +88,18 @@ class DatabaseSeeder extends Seeder
 
         $faker = Faker::create();
 
+        /*---- Métodos de Pago ----*/
+        DB::table('metodospago')->insert([
+            'estado'        => 1,
+            'nombre'        => 'Terminal Bancomer',
+            'descripcion'   => 'Pagos con Tarjeta Terminal Bancomer'
+        ]);
+        DB::table('metodospago')->insert([
+            'estado'        => 1,
+            'nombre'        => 'Efectivo',
+            'descripcion'   => 'Esta opción son para pagos con efectivo'
+        ]);
+
         /*---- Proveedores ----*/
         foreach(range(1,10) as $index){
             DB::table('proveedores')->insert([
@@ -175,10 +187,13 @@ class DatabaseSeeder extends Seeder
         foreach(range(1,1500) as $index){
             $clientes = DB::table('clientes')->get();
             $users = DB::table('users')->get();
+            $metodospago = DB::table('metodospago')->get();
             DB::table('ventas')->insert([
-                'clientes_id'   => $clientes[rand(0, count($clientes)-1)]->id,
-                'users_id'      => $users[rand(0, count($users)-1)]->id,
-                'fecha_venta'   => $faker->dateTimeThisYear('now')
+                'cliente_id'        => $clientes[rand(0, count($clientes)-1)]->id,
+                'user_id'           => $users[rand(0, count($users)-1)]->id,
+                'metodopago_id'    => $metodospago[rand(0, count($metodospago)-1)]->id,
+                'fecha_venta'       => $faker->dateTimeThisYear('now'),
+                'hora_venta'        => $faker->time()
             ]);
             $id_venta = DB::getPdo()->lastInsertId();
             $maxItems = rand(2,8);

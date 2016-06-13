@@ -190,6 +190,17 @@ p{
 .colpase-menu:active, .colpase-menu:hover, .colpase-menu:focus{
 	text-decoration: none !important;
 }
+.gt{
+	padding-top: 5px;
+}
+.gt strong{
+	font-size: 18px;
+    font-weight: 600;
+}
+.ovflhi{
+	overflow: hidden;
+	margin-bottom: 17px;
+}
 
 @media (max-width: 522px){
 	.padAv{
@@ -208,5 +219,15 @@ p{
 @media (max-width: 992px){
 	.wrapp-colapse-menu{
 		display: none;
+	}
+	.ovflhi{
+		margin-bottom: 10px;
+	}
+	.gt{
+		float: none !important;
+	}
+	#reportrange{
+		float: none !important;
+		margin-top: 6px;
 	}
 }

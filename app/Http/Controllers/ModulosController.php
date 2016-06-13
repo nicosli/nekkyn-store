@@ -11,6 +11,7 @@ use App\User;
 use App\Cliente;
 use App\Producto;
 use App\Talla;
+use App\Metodopago;
 
 class ModulosController extends Controller{
 	public static function inicio(){
@@ -22,14 +23,16 @@ class ModulosController extends Controller{
 	}
 
 	public static function catalogos(){
-		$categorias = Categoria::paginate(10);
-		$colores = Color::paginate(10);
-		$tallas = Talla::paginate(10);
+		$categorias 	= Categoria::paginate(10);
+		$colores 		= Color::paginate(10);
+		$tallas 		= Talla::paginate(10);
+		$metodospago 	= Metodopago::paginate(10);
 
 		return view('modulos.catalogos.inicio', array(
-			'categorias' => $categorias,
-			'colores'	=> $colores,
-			'tallas'	=> $tallas
+			'categorias' 	=> $categorias,
+			'colores'		=> $colores,
+			'tallas'		=> $tallas,
+			'metodospago'	=> $metodospago
 		));
 	}
 

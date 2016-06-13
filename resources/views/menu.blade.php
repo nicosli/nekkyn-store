@@ -36,7 +36,7 @@
                 <i class="fa fa-bar-chart"></i> <span>Reportes</span> <b class="caret"></b>
             </a>
             <ul class="dropdown-menu navmenu-nav" role="menu">
-                <li class="{{(Request::path()=='Reportes/Ventas')?'active':''}}">
+                <li class="{!! Util::menuActive(Request::path(), 'Reportes\/Ventas', 'active') !!}">
                     <a href="{!! asset('/Reportes/Ventas') !!}">
                     <i class="fa fa-caret-right"></i> Ventas</a>
                 </li>
