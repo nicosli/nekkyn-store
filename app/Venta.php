@@ -10,7 +10,7 @@ class Venta extends Model
     protected $table = 'ventas';
 
     public function items(){
-    	return $this->hasMany('App\listaventa');
+    	return $this->hasMany('App\Listaventa');
     }
     public function usuario(){
     	return $this->belongsTo('App\User', 'user_id');
