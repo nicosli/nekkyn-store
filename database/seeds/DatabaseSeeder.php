@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Seeder;
 use Faker\Factory as Faker;
+use App\Producto;
 
 class DatabaseSeeder extends Seeder
 {
@@ -153,7 +154,7 @@ class DatabaseSeeder extends Seeder
         );
 
         foreach(range(0,count($productos)-1) as $index){
-            $costo = rand(150, 800);
+            $costo = rand(150, 500);
             $precio_publico = $costo * 2;
             DB::table('productos')->insert([
                 'estado'            => 1,
@@ -168,6 +169,33 @@ class DatabaseSeeder extends Seeder
                 'descripcion'       => $faker->paragraph,
                 'barcode'           => $faker->ean13
             ]);
+        }
+
+        /*---- Ventas ----*/
+        foreach(range(1,1500) as $index){
+            $clientes = DB::table('clientes')->get();
+            $users = DB::table('users')->get();
+            DB::table('ventas')->insert([
+                'clientes_id'   => $clientes[rand(0, count($clientes)-1)]->id,
+                'users_id'      => $users[rand(0, count($users)-1)]->id,
+                'fecha_venta'   => $faker->dateTimeThisYear('now')
+            ]);
+            $id_venta = DB::getPdo()->lastInsertId();
+            $maxItems = rand(2,8);
+            $productos = Producto::all();
+            foreach(range(1, $maxItems) as $ind){
+                $item = rand(0, count($productos)-1);
+                DB::table('listaventas')->insert([
+                    'barcode' => $productos[$item]->barcode,
+                    'nombre' => $productos[$item]->nombre,
+                    'talla' => $productos[$item]->talla['nombre'],
+                    'venta_id' => $id_venta,
+                    'proveedor_id' => $productos[$item]->proveedor['id'],
+                    'categoria_id' => $productos[$item]->categoria['id'],
+                    'color_id' => $productos[$item]->color['id'],
+                    'monto' => $productos[$item]->precio_publico
+                ]);
+            }
         }
     }
 }
