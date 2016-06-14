@@ -10,18 +10,16 @@ class ReportesController extends Controller{
 		
 		$ventas 	= Venta::
 		whereBetween('fecha_venta', array($fhInicio, $fhFin))
-		->orderBy('fecha_venta', 'DSC')
+		->orderBy('fecha_venta', 'ASC')
 		->orderBy('hora_venta', 'ASC');
 		
 		$todo = $ventas->get();
-		$totalVenta = $todo->sum(function($todo){
-		    return $todo->items->sum('monto');
-		});
+		$totalVenta = $todo->sum('total_venta');
+		$jsonventas = Venta::jsonventas($todo);
 		
 		$ventas = $ventas->paginate(10);
 
 		$ventas->setPath('/Reportes/Ventas?fhInicio='.$fhInicio."&fhFIn=".$fhFin);
-		$jsonventas = Venta::jsonventas($fhInicio, $fhFin);
 
 		return view('modulos.reportes.ventas.inicio', array(
 			'ventas' 		=> $ventas,

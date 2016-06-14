@@ -196,10 +196,17 @@ p{
 .gt strong{
 	font-size: 18px;
     font-weight: 600;
+    display: inline;
+    vertical-align: middle;
 }
 .ovflhi{
 	overflow: hidden;
 	margin-bottom: 17px;
+}
+.statsDashboard strong{
+	display: inline;
+    font-weight: 600;
+    vertical-align: middle;
 }
 
 @media (max-width: 522px){

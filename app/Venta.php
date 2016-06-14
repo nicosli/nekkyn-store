@@ -28,20 +28,16 @@ class Venta extends Model
     	}
     	return $total;
     }
-    public static function jsonventas($fhInicio, $fhFin){
-        $ventas = Venta::
-        whereBetween('fecha_venta', array($fhInicio, $fhFin))
-        ->orderBy('fecha_venta', 'ASC')
-        ->orderBy('hora_venta', 'ASC')->get();
-
+    public static function jsonventas($todo){
         $json = "";
-        foreach ($ventas as $key => $val) {
+        foreach ($todo as $key => $val) {
+            //echo $val->total_venta."<br>";
             if(isset($json[$val->fecha_venta]))
-                $json[$val->fecha_venta] += $val->items->sum('monto');
+                $json[$val->fecha_venta] += $val->total_venta;
             else
-                $json[$val->fecha_venta] = $val->items->sum('monto');
+                $json[$val->fecha_venta] = $val->total_venta;
         }
-
+        //dd($json);
         return $json;
     }
 }

@@ -12,13 +12,31 @@ use App\Cliente;
 use App\Producto;
 use App\Talla;
 use App\Metodopago;
+use App\Venta;
 
 class ModulosController extends Controller{
 	public static function inicio(){
 		$totalPiezas = Producto::sum('existencia');
 
+		$inventario_categorias = Producto::groupBy('categoria_id')
+		->selectRaw('*, sum(existencia) as totales, sum(costo) as total_costo')
+		->get();
+
+		$ventas 	= Venta::
+		whereBetween('fecha_venta', array(date('Y-m-01'), date('Y-m-d')))
+		->orderBy('fecha_venta', 'ASC')
+		->orderBy('hora_venta', 'ASC')->get();
+
+		$totalVenta = $ventas->sum('total_venta');
+		$jsonventas = Venta::jsonventas($ventas);
+
+		$ventas10 = Venta::orderBy('fecha_venta', 'DSC')->paginate(10);
+
 		return view('modulos.inicio.inicio', array(
-			'totalPiezas' => $totalPiezas
+			'totalPiezas' 				=> $totalPiezas,
+			'ventas'					=> $ventas10,
+			'jsonventas' 				=> $jsonventas,
+			'total_ventas_mes' 			=> $totalVenta
 		));
 	}
 

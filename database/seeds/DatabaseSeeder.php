@@ -3,6 +3,7 @@
 use Illuminate\Database\Seeder;
 use Faker\Factory as Faker;
 use App\Producto;
+use App\Venta;
 
 class DatabaseSeeder extends Seeder
 {
@@ -184,14 +185,14 @@ class DatabaseSeeder extends Seeder
         }
 
         /*---- Ventas ----*/
-        foreach(range(1,1500) as $index){
+        foreach(range(1,1852) as $index){
             $clientes = DB::table('clientes')->get();
             $users = DB::table('users')->get();
             $metodospago = DB::table('metodospago')->get();
             DB::table('ventas')->insert([
                 'cliente_id'        => $clientes[rand(0, count($clientes)-1)]->id,
                 'user_id'           => $users[rand(0, count($users)-1)]->id,
-                'metodopago_id'    => $metodospago[rand(0, count($metodospago)-1)]->id,
+                'metodopago_id'     => $metodospago[rand(0, count($metodospago)-1)]->id,
                 'fecha_venta'       => $faker->dateTimeThisYear('now'),
                 'hora_venta'        => $faker->time()
             ]);
@@ -211,6 +212,12 @@ class DatabaseSeeder extends Seeder
                     'monto' => $productos[$item]->precio_publico
                 ]);
             }
+        }
+        $ventas = Venta::all();
+        foreach ($ventas as $key => $val) {
+            $total = $val->items->sum('monto');            
+            $val->total_venta = $total;
+            $val->save();
         }
     }
 }

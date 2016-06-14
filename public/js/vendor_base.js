@@ -2269,9 +2269,10 @@ $(document).ready(function(){
   	});
 
   	/*Chart*/
+  	if($("#chartdiv").length > 0)
   	AmCharts.ready(function(){
 	   var chart = new AmCharts.AmStockChart();
-        chart.pathToImages = "amcharts/images/";
+        chart.pathToImages = "/images/amcharts/";
 
         var dataSet = new AmCharts.DataSet();
         dataSet.dataProvider = chartData;
@@ -2291,6 +2292,7 @@ $(document).ready(function(){
         graph.type = "column";
         graph.fillAlphas = 1;
         graph.title = "MyGraph"; 
+        graph.theme = "light";
         stockPanel.addStockGraph(graph);
 
         chart.write("chartdiv");

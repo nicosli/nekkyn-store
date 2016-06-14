@@ -52,5 +52,5 @@ elixir(function(mix) {
 
 	mix.copy('resources/assets/bower/fontawesome/fonts', 'public/fonts');
 	mix.copy('resources/assets/bower/bootstrap/fonts', 'public/fonts');
-	mix.copy('resources/assets/bower/amstock3/amcharts/images', 'public/Reportes/amcharts/images');
+	mix.copy('resources/assets/bower/amstock3/amcharts/images', 'public/images/amcharts');
 });

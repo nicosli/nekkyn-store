@@ -110,6 +110,7 @@ class Util{
 		return strtoupper($ret);
 	}
     public static function jsonEspecialChart($json){
+        if($json)
         foreach ($json as $fecha => $val) {
             $fh = explode("-", $fecha);
             $mes = $fh[1] - 1;

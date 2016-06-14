@@ -26,8 +26,8 @@
 			<div class="titTab"><i class="fa fa-angle-right"></i> Ventas</div>
 			<div class="ovflhi">
 				<div class="gt pull-left">
-					Gran Total MXN $ 
-					<strong>{!! number_format($totalVenta,2) !!}</strong>
+					<span class="label label-primary">Gran Total</span>
+					<strong>MXN $ {!! number_format($totalVenta,2) !!}</strong>
 				</div>
 				<div id="reportrange" class="pull-right dateRangeMovil" 
 					style="background: #fff; cursor: pointer; padding: 5px 10px; border: 1px solid #ccc;">
@@ -37,7 +37,7 @@
 				<input type="hidden" id="startDate" value="{{$fhInicio}}">
    				<input type="hidden" id="endDate" value="{{$fhFin}}">
 			</div>
-			<div id="chartdiv" style="width:100%; height:350px;"></div>
+			<div id="chartdiv" style="width:100%; height:250px;"></div>
 						
 			<div class="table-responsive">
 			<table class="table table-striped">
@@ -61,7 +61,7 @@
 					<td>{!! $val->cliente['nombre'] !!}</td>
 					<td>{!! $val->usuario['name'] !!}</td>
 					<td>{!! $val->items->count() !!} Productos</td>
-					<td>MXN $ <strong>{!! number_format($val->items->sum('monto'),2) !!}</strong></td>
+					<td>MXN $ <strong>{!! number_format($val->total_venta,2) !!}</strong></td>
 				</tr>
 				@endforeach
 			</table>

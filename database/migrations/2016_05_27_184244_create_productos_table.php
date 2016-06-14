@@ -24,8 +24,8 @@ class CreateProductosTable extends Migration
             $table->foreign('talla_id')->references('id')->on('tallas');
             $table->string('nombre');
             $table->integer('existencia');
-            $table->decimal('costo', 5, 2);
-            $table->decimal('precio_publico', 5,2);
+            $table->decimal('costo', 10, 2);
+            $table->decimal('precio_publico', 10,2);
             $table->string('descripcion');
             $table->string('barcode');
             $table->integer('estado');

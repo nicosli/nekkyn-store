@@ -25,7 +25,7 @@ class CreatListaventasTable extends Migration
             $table->foreign('categoria_id')->references('id')->on('categorias');
             $table->integer('color_id')->unsigned();
             $table->foreign('color_id')->references('id')->on('colores');
-            $table->decimal('monto', 5,2);
+            $table->decimal('monto', 10,2);
             $table->timestamps();
         });
     }
