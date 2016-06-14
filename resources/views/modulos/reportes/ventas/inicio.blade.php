@@ -27,7 +27,7 @@
 			<div class="ovflhi">
 				<div class="gt pull-left">
 					Gran Total MXN $ 
-					<strong>{!! number_format($totalVentas,2) !!}</strong>
+					<strong>{!! number_format($totalVenta,2) !!}</strong>
 				</div>
 				<div id="reportrange" class="pull-right dateRangeMovil" 
 					style="background: #fff; cursor: pointer; padding: 5px 10px; border: 1px solid #ccc;">
