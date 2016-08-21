@@ -47,3 +47,11 @@ Route::get('/Clientes', ['middleware' => 'auth', 'uses' => 'ModulosController@cl
 Route::get('/Productos', ['middleware' => 'auth', 'uses' => 'ModulosController@productos']);
 Route::get('/PuntoDeVenta', ['middleware' => 'auth', 'uses' => 'ModulosController@puntoDeVenta']);
 Route::get('/Reportes/Ventas', ['middleware' => 'auth', 'uses' => 'ReportesController@ventas']);
+
+
+/**
+|--------------------------------------------------------------------------
+| API
+|--------------------------------------------------------------------------
+*/
+Route::get('/venta/{id}', ['uses' => 'VentasController@get']);

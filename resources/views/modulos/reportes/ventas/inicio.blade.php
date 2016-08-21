@@ -60,7 +60,16 @@
 					<td>{!! $val->metodopago['nombre'] !!}</td>
 					<td>{!! $val->cliente['nombre'] !!}</td>
 					<td>{!! $val->usuario['name'] !!}</td>
-					<td>{!! $val->items->count() !!} Productos</td>
+					<td>
+						<a href="#venta-detalle" 
+							class="btn-show" 
+							data-toggle="modal" 
+							data-target="#modal-show"
+							data-id-venta="{!! $val->id !!}"
+							> 
+							{!! $val->items->count() !!} Productos
+						</a>
+					</td>
 					<td>MXN $ <strong>{!! number_format($val->total_venta,2) !!}</strong></td>
 				</tr>
 				@endforeach

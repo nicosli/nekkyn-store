@@ -1,4 +1,17 @@
 $(document).ready(function(){
+
+	/*---- mostrar detalle de venta -----*/
+	$(".btn-show").on("click", function(){
+		id_venta = $(this).attr('data-id-venta');
+		$.ajax({
+			type:"GET",
+			url:"/venta/"+id_venta,
+			success: function(res){
+				console.log(res);
+			}
+		})
+	});
+
 	/*---- DatePicker -----*/
 	function cb(start, end) {
         $('#reportrange span').html(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'));

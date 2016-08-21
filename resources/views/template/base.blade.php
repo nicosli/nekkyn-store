@@ -39,5 +39,7 @@
     @yield('script')    
     <script src="{!! asset( 'js/vendor_base.js' ) !!}"></script>
 
+    @include('modales')
+
     </body>
 </html>
