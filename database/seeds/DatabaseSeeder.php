@@ -18,8 +18,8 @@ class DatabaseSeeder extends Seeder
         DB::table('users')->insert([
             'name'     => 'Nicolas Navarrete Clemente',
             'nickname' => 'nicosli',
-            'email'    => 'nnavarrete@devcomer.com',
-            'password' => bcrypt('tamales'),
+            'email'    => 'nicosli@gmail.com',
+            'password' => bcrypt('ok00'),
             'avatar'   => 'https://graph.facebook.com/v2.6/1396397923710124/picture?type=normal',
             'estado'   => 1,
             'idSocial' => '1396397923710124'
