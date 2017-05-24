@@ -38,6 +38,7 @@ elixir(function(mix) {
 		'/resources/assets/bower/amstock3/amcharts/amcharts.js',
 		'/resources/assets/bower/amstock3/amcharts/serial.js',
 		'/resources/assets/bower/amstock3/amcharts/amstock.js',
+		'/resources/assets/bower/bootstrap-validator/dist/validator.min.js',
 		'/resources/assets/js/funciones.js',
 		'/resources/assets/js/crud.js',
 		'/resources/assets/js/modulos/reportes.ventas.js',

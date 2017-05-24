@@ -27,7 +27,7 @@ class CreateProductosTable extends Migration
             $table->decimal('costo', 10, 2);
             $table->decimal('precio_publico', 10,2);
             $table->string('descripcion');
-            $table->string('barcode');
+            $table->string('barcode')->unique();
             $table->integer('estado');
             $table->timestamps();
         });

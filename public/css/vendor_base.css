@@ -641,4 +641,7 @@ p{
 		margin-top: 6px;
 	}
 }
+.alert-exito, .alert-error{
+	display: none;
+}
 /*# sourceMappingURL=vendor_base.css.map */
