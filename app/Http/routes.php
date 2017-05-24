@@ -29,8 +29,7 @@ Route::get('/logout', 'Auth\AuthController@getLogout');
 */
 Route::get('auth/facebook', 'AuthController@redirectToProvider');
 Route::get('auth/facebook/callback', 'AuthController@handleProviderCallback');
-
-View::composer(array('template.base', 'modulos.inicio.inicio'), function($view){
+View::composer(['template.base', 'modulos.inicio.inicio'], function($view){
 	$avatar = (Auth::user()->avatar == '')? '/img/avatar.jpg' : Auth::user()->avatar;
 	$view->with('avatar', $avatar);
 });

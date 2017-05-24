@@ -12,6 +12,9 @@ var elixir = require('laravel-elixir');
  */
 
 elixir(function(mix) {
+
+	
+
     mix.scripts([
 		'/bower/jquery/dist/jquery.min.js',
 		'/bower/jquery-backstretch/jquery.backstretch.min.js',
@@ -27,17 +30,19 @@ elixir(function(mix) {
 
 
 	mix.scripts([
-		'/bower/jquery/dist/jquery.min.js',
-		'/bower/bootstrap/dist/js/bootstrap.min.js',
-		'/bower/jasny-bootstrap/dist/js/jasny-bootstrap.min.js',
-		'/bower/moment/min/moment.min.js',
-		'/bower/bootstrap-daterangepicker/daterangepicker.js',
-		'/bower/amstock3/amcharts/amcharts.js',
-		'/bower/amstock3/amcharts/serial.js',
-		'/bower/amstock3/amcharts/amstock.js',
-		'/js/funciones.js',
-		'/js/modulos/reportes.ventas.js'
-	 ], 'public/js/vendor_base.js', 'resources/assets' );
+		'/resources/assets/bower/jquery/dist/jquery.min.js',
+		'/resources/assets/bower/bootstrap/dist/js/bootstrap.min.js',
+		'/resources/assets/bower/jasny-bootstrap/dist/js/jasny-bootstrap.min.js',
+		'/resources/assets/bower/moment/min/moment.min.js',
+		'/resources/assets/bower/bootstrap-daterangepicker/daterangepicker.js',
+		'/resources/assets/bower/amstock3/amcharts/amcharts.js',
+		'/resources/assets/bower/amstock3/amcharts/serial.js',
+		'/resources/assets/bower/amstock3/amcharts/amstock.js',
+		'/resources/assets/js/funciones.js',
+		'/resources/assets/js/crud.js',
+		'/resources/assets/js/modulos/reportes.ventas.js',
+		'/node_modules/jquery-ean13/dist/jquery-ean13.min.js'
+	], 'public/js/vendor_base.js', './');
 
 	mix.styles([
 		'bower/bootstrap/dist/css/bootstrap.min.css',

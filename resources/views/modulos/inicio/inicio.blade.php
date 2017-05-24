@@ -14,7 +14,7 @@
 <div class="wrapp-inicio">
 	<div class="overflow-hidden">
 		<div class="pull-left padAv">
-			<img class="avBig" src="{!! asset($avatar) !!}" />
+			<img class="avBig" src="/img/avatar.jpg" />
 		</div>
 		<div class="pull-left">
 			<div class="nickname">{!! Auth::user()->nickname !!}</div>

@@ -21,7 +21,7 @@
         <div class="pull-right">
             <div class="avatar">
                 <div class="pull-left">
-                    <img class="av" src="{!! asset($avatar) !!}" />
+                    <img class="av" src="/img/avatar.jpg" />
                 </div>
                 <div class="pull-right sp">
                     <span>Hola <strong>{!! Auth::user()->nickname !!} </strong></span>                    
@@ -36,10 +36,10 @@
         @yield('contenido')        
     </div>
     
-    @yield('script')    
+    @yield('script') 
     <script src="{!! asset( 'js/vendor_base.js' ) !!}"></script>
 
-    @include('modales')
+    @yield('modals')
 
     </body>
 </html>

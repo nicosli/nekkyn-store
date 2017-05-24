@@ -79,10 +79,18 @@ class ModulosController extends Controller{
 	}
 
 	public static function productos(){
-		$productos = Producto::paginate(10);
+		$productos 		= Producto::paginate(10);
+		$categorias 	= Categoria::all();
+		$colores 		= Color::all();
+		$proveedores 	= Proveedor::all();
+		$tallas 		= Talla::all();
 
 		return view('modulos.productos.inicio', array(
-			'productos' => $productos
+			'productos' 	=> $productos,
+			'categorias'	=> $categorias,
+			'colores'		=> $colores,
+			'proveedores'	=> $proveedores,
+			'tallas'		=> $tallas
 		));
 	}
 
