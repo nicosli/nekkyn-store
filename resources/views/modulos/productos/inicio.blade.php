@@ -12,6 +12,8 @@
 @endsection
 @section('contenido')
 <div class="wrapp-inicio">
+	<input type="hidden" name="page" value="{{ $page }}">
+	<input type="hidden" name="location" value="{{Request::path()}}">
 	<h2 class="h2TitMod"><i class="fa fa-barcode fah2"></i> Tabla de Productos</h2>
 	<p>
 		El módulo de Productos esta diseñado para agregar todos los Productos que necesitemos
@@ -24,6 +26,12 @@
 	</ul>
 	<div class="tab-content">
 		<div id="productos" class="tab-pane fade in active">
+			@if($success == '1')
+			<div class="alert alert-success alert-dismissible" role="alert">
+				<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<strong>Registro Actualizado!</strong> El Producto se actualizó con éxito en la base de datos.
+			</div>
+			@endif
 			<div class="alert alert-success alert-dismissible alert-exito" role="alert">
 				<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 				<strong>Registro guardado!</strong> El Producto se guardó con éxito en la base de datos.
@@ -68,7 +76,7 @@
 						</span>
 					</td>
 					<td>
-						<button type="button" class="btn btn-primary btn-xs btn-editar" data-toggle="modal" data-target="#modalEditar">Editar</button>
+						<button type="button" class="btn btn-primary btn-xs btn-editar" data-toggle="modal" data-target="#modalEditar" data-productoid="{!! $val->id !!}">Editar</button>
 					</td>
 				</tr>
 				@endforeach
@@ -88,114 +96,223 @@
 		<div class="modal-dialog" role="document">
 			<div class="modal-content">
 				<div class="modal-header">
-				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-				<h5 class="modal-title"><i class="fa fa-list-alt" aria-hidden="true"></i> Agregar Nuevo Producto</h5>
-			</div>
-			<form role="form" data-toggle="validator" id="formAgregarProducto">
-			<div class="modal-body">
-				<div class="form-group">
-					<label for="nombre">Nombre</label>
-					<input type="text" class="form-control" id="nombre" placeholder="Nombre del Producto" name="nombre" required>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+					<h5 class="modal-title"><i class="fa fa-list-alt" aria-hidden="true"></i> Agregar Nuevo Producto</h5>
 				</div>
-				<div class="row">
-					<div class="col-md-6">
-						<div class="form-group">
-							<label for="categoria_id">Categoría</label>
-							<select name="categoria_id" id="categoria_id" class="form-control" required>
-								<option value="">Seleccione Categoría</option>
-								@foreach($categorias as $categoria)
-									<option value="{{$categoria->id}}">{{$categoria->nombre}}</option>
-								@endforeach
-							</select>
+				<form role="form" data-toggle="validator" id="formAgregarProducto">
+				<div class="modal-body">
+					<div class="form-group">
+						<label for="nombre">Nombre</label>
+						<input type="text" class="form-control" id="nombre" placeholder="Nombre del Producto" name="nombre" required>
+					</div>
+					<div class="row">
+						<div class="col-md-6">
+							<div class="form-group">
+								<label for="categoria_id">Categoría</label>
+								<select name="categoria_id" id="categoria_id" class="form-control" required>
+									<option value="">Seleccione Categoría</option>
+									@foreach($categorias as $categoria)
+										<option value="{{$categoria->id}}">{{$categoria->nombre}}</option>
+									@endforeach
+								</select>
+							</div>
+						</div>
+						<div class="col-md-6">
+							<div class="form-group">
+								<label for="color_id">Color</label>
+								<select name="color_id" id="color_id" class="form-control" required>
+									<option value="">Seleccione Color</option>
+									@foreach($colores as $color)
+										<option value="{{$color->id}}">{{$color->nombre}}</option>
+									@endforeach
+								</select>
+							</div>
+						</div>
+						<div class="col-md-6">
+							<div class="form-group">
+								<label for="proveedor_id">Proveedor</label>
+								<select name="proveedor_id" id="proveedor_id" class="form-control" required>
+									<option value="">Seleccione Proveedor</option>
+									@foreach($proveedores as $proveedor)
+										<option value="{{$proveedor->id}}">{{$proveedor->nombre}}</option>
+									@endforeach
+								</select>
+							</div>
+						</div>
+						<div class="col-md-6">
+							<div class="form-group">
+								<label for="talla_id">Talla</label>
+								<select name="talla_id" id="talla_id" class="form-control" required>
+									<option value="">Seleccione Talla</option>
+									@foreach($tallas as $talla)
+										<option value="{{$talla->id}}">{{$talla->nombre}}</option>
+									@endforeach
+								</select>
+							</div>
+						</div>
+						<div class="col-md-6">
+							<div class="form-group">
+								<label for="costo">Costo</label>
+								<input type="number" class="form-control" id="costo" placeholder="costo del producto" name="costo" step=1 required>
+							</div>
+						</div>
+						<div class="col-md-6">
+							<div class="form-group">
+								<label for="precio_publico">Precio Público</label>
+								<input type="number" class="form-control" id="precio_publico" placeholder="Precio Público del producto" name="precio_publico" required>
+							</div>
+						</div>
+						<div class="col-md-6">
+							<div class="form-group">
+								<label for="existencia">Existencia</label>
+								<input type="number" class="form-control" id="existencia" placeholder="Número de piezas" name="existencia" required>
+							</div>
+						</div>
+						<div class="col-md-6">
+							<div class="form-group">
+								<label for="existencia">Código de Barras</label>
+								<input type="text" class="form-control barcode" id="barcode" name="barcode" required disabled>
+							</div>
 						</div>
 					</div>
-					<div class="col-md-6">
-						<div class="form-group">
-							<label for="color_id">Color</label>
-							<select name="color_id" id="color_id" class="form-control" required>
-								<option value="">Seleccione Color</option>
-								@foreach($colores as $color)
-									<option value="{{$color->id}}">{{$color->nombre}}</option>
-								@endforeach
-							</select>
-						</div>
+					<div class="form-group">
+						<label for="descripcion">Descripción</label>
+						<textarea name="descripcion" class="form-control" id="descripcion" name="descripcion" cols="30" rows="3" required></textarea>
 					</div>
-					<div class="col-md-6">
-						<div class="form-group">
-							<label for="proveedor_id">Proveedor</label>
-							<select name="proveedor_id" id="proveedor_id" class="form-control" required>
-								<option value="">Seleccione Proveedor</option>
-								@foreach($proveedores as $proveedor)
-									<option value="{{$proveedor->id}}">{{$proveedor->nombre}}</option>
-								@endforeach
-							</select>
-						</div>
-					</div>
-					<div class="col-md-6">
-						<div class="form-group">
-							<label for="talla_id">Talla</label>
-							<select name="talla_id" id="talla_id" class="form-control" required>
-								<option value="">Seleccione Talla</option>
-								@foreach($tallas as $talla)
-									<option value="{{$talla->id}}">{{$talla->nombre}}</option>
-								@endforeach
-							</select>
-						</div>
-					</div>
-					<div class="col-md-6">
-						<div class="form-group">
-							<label for="costo">Costo</label>
-							<input type="number" class="form-control" id="costo" placeholder="costo del producto" name="costo" step=1 required>
-						</div>
-					</div>
-					<div class="col-md-6">
-						<div class="form-group">
-							<label for="precio_publico">Precio Público</label>
-							<input type="number" class="form-control" id="precio_publico" placeholder="Precio Público del producto" name="precio_publico" required>
-						</div>
-					</div>
-					<div class="col-md-6">
-						<div class="form-group">
-							<label for="existencia">Existencia</label>
-							<input type="number" class="form-control" id="existencia" placeholder="Número de piezas" name="existencia" required>
-						</div>
-					</div>
-					<div class="col-md-6">
-						<div class="form-group">
-							<label for="existencia">Código de Barras</label>
-							<input type="text" class="form-control barcode" id="barcode" name="barcode" required disabled>
-						</div>
-					</div>
+					<input type="hidden" class="barcode" name="barcode">
+					{!! csrf_field() !!}
 				</div>
-				<div class="form-group">
-					<label for="descripcion">Descripción</label>
-					<textarea name="descripcion" class="form-control" id="descripcion" name="descripcion" cols="30" rows="3" required></textarea>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+					<button type="submit" class="btn btn-primary">Guardar</button>
 				</div>
-				<input type="hidden" class="barcode" name="barcode">
-				{!! csrf_field() !!}
-			</div>
-			<div class="modal-footer">
-				<button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-				<button type="submit" class="btn btn-primary">Guardar</button>
-			</div>
 			</div>
 			</form>
 		</div>
 	</div>
 
-	<!-- Modal Nuevo-->
+	<!-- Modal Mostrar-->
 	<div class="modal fade" id="modalMostrar" tabindex="-1" role="dialog" aria-labelledby="modalMostrar">
 		<div class="modal-dialog" role="document">
 			<div class="modal-content">
 				<div class="modal-header">
-				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-				<h5 class="modal-title"><i class="fa fa-list-alt" aria-hidden="true"></i> Mostrar detalles del Producto</h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+					<h5 class="modal-title"><i class="fa fa-list-alt" aria-hidden="true"></i> Mostrar detalles del Producto</h5>
+				</div>
+				<div class="modal-body">
+					<h3 class="modalMostrarNombre mt0"></h3>
+					<canvas id="ean" width="200" height="100">
+						Your browser does not support canvas-elements.
+					</canvas>
+					<p class="modalMostrarDes bg-primary"></p>
+					<div class="resultModalMostrar"></div>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+				</div>
 			</div>
-			<div class="modal-body">
-				<canvas id="ean" width="200" height="100">
-					Your browser does not support canvas-elements.
-				</canvas>
-				<div class="resultModalMostrar"></div>
+		</div>
+	</div>
+	<!-- Modal Editar-->
+	<div class="modal fade" id="modalEditar" tabindex="-1" role="dialog" aria-labelledby="modalEditar">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+					<h5 class="modal-title"><i class="fa fa-list-alt" aria-hidden="true"></i> Editar Producto</h5>
+				</div>
+				<form role="form" data-toggle="validator" id="formEditarProducto">
+				<div class="modal-body">
+					<div class="resultModalEditar"></div>
+					<div class="modalEditarDivForm">
+					<div class="form-group">
+						<label for="nombre">Nombre</label>
+						<input type="text" class="form-control" id="nombre" placeholder="Nombre del Producto" name="nombre" required>
+					</div>
+					<div class="row">
+						<div class="col-md-6">
+							<div class="form-group">
+								<label for="categoria_id">Categoría</label>
+								<select name="categoria_id" id="categoria_id" class="form-control" required>
+									<option value="">Seleccione Categoría</option>
+									@foreach($categorias as $categoria)
+										<option value="{{$categoria->id}}">{{$categoria->nombre}}</option>
+									@endforeach
+								</select>
+							</div>
+						</div>
+						<div class="col-md-6">
+							<div class="form-group">
+								<label for="color_id">Color</label>
+								<select name="color_id" id="color_id" class="form-control" required>
+									<option value="">Seleccione Color</option>
+									@foreach($colores as $color)
+										<option value="{{$color->id}}">{{$color->nombre}}</option>
+									@endforeach
+								</select>
+							</div>
+						</div>
+						<div class="col-md-6">
+							<div class="form-group">
+								<label for="proveedor_id">Proveedor</label>
+								<select name="proveedor_id" id="proveedor_id" class="form-control" required>
+									<option value="">Seleccione Proveedor</option>
+									@foreach($proveedores as $proveedor)
+										<option value="{{$proveedor->id}}">{{$proveedor->nombre}}</option>
+									@endforeach
+								</select>
+							</div>
+						</div>
+						<div class="col-md-6">
+							<div class="form-group">
+								<label for="talla_id">Talla</label>
+								<select name="talla_id" id="talla_id" class="form-control" required>
+									<option value="">Seleccione Talla</option>
+									@foreach($tallas as $talla)
+										<option value="{{$talla->id}}">{{$talla->nombre}}</option>
+									@endforeach
+								</select>
+							</div>
+						</div>
+						<div class="col-md-6">
+							<div class="form-group">
+								<label for="costo">Costo</label>
+								<input type="number" class="form-control" id="costo" placeholder="costo del producto" name="costo" step=1 required>
+							</div>
+						</div>
+						<div class="col-md-6">
+							<div class="form-group">
+								<label for="precio_publico">Precio Público</label>
+								<input type="number" class="form-control" id="precio_publico" placeholder="Precio Público del producto" name="precio_publico" required>
+							</div>
+						</div>
+						<div class="col-md-6">
+							<div class="form-group">
+								<label for="existencia">Existencia</label>
+								<input type="number" class="form-control" id="existencia" placeholder="Número de piezas" name="existencia" required>
+							</div>
+						</div>
+						<div class="col-md-6">
+							<div class="form-group">
+								<label for="existencia">Código de Barras</label>
+								<input type="text" class="form-control barcode" id="barcode" name="barcode" required disabled>
+							</div>
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="descripcion">Descripción</label>
+						<textarea name="descripcion" class="form-control" id="descripcion" name="descripcion" cols="30" rows="3" required></textarea>
+					</div>
+					<input type="hidden" class="producto_id" name="producto_id">
+					<input type="hidden" class="barcode" name="barcode">
+					{!! csrf_field() !!}
+					</div>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+					<button type="submit" class="btn btn-primary">Guardar</button>
+				</div>
+				</form>
 			</div>
 		</div>
 	</div>

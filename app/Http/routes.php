@@ -56,3 +56,4 @@ Route::get('/Reportes/Ventas', ['middleware' => 'auth', 'uses' => 'ReportesContr
 Route::get('/venta/{id}', ['uses' => 'VentasController@get']);
 Route::post('/Productos/agregar', ['uses' => 'crudController@agregar']);
 Route::get('/Productos/get/{id}', ['uses' => 'crudController@get']);
+Route::post('/Productos/actualizar', ['uses' => 'crudController@actualizar']);

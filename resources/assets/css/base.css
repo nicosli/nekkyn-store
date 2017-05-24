@@ -241,3 +241,10 @@ p{
 .alert-exito, .alert-error{
 	display: none;
 }
+.modalMostrarDes{
+	padding: 10px 12px;
+    margin-top: 10px;
+}
+.mt0{
+	margin-top: 0px;
+}

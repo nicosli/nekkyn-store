@@ -1,5 +1,6 @@
 <?php 
 namespace App\Http\Controllers;
+use Illuminate\Http\Request;
 
 use App\Models\Colores;
 use DB;
@@ -78,19 +79,23 @@ class ModulosController extends Controller{
 		));
 	}
 
-	public static function productos(){
+	public static function productos(Request $request){
 		$productos 		= Producto::paginate(10);
 		$categorias 	= Categoria::all();
 		$colores 		= Color::all();
 		$proveedores 	= Proveedor::all();
 		$tallas 		= Talla::all();
+		$page 			= $request->input('page');
+		$success 		= $request->input('success');
 
 		return view('modulos.productos.inicio', array(
 			'productos' 	=> $productos,
 			'categorias'	=> $categorias,
 			'colores'		=> $colores,
 			'proveedores'	=> $proveedores,
-			'tallas'		=> $tallas
+			'tallas'		=> $tallas,
+			'page'			=> $page,
+			'success'		=> $success
 		));
 	}
 
