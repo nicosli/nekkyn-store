@@ -2408,7 +2408,8 @@ $(document).ready(function(){
                     var obj = jQuery.parseJSON(result);
                     if(obj.exito == 1){
                         page = ($("input[name='page']").val() == "")? "?success=1" : "?page="+$("input[name='page']").val()+"&success=1";
-                        window.location.replace($("input[name='location']").val()+page);
+                        buscar = ($("input[name='buscarQuery']").val() == "")? "" : "&buscar="+$("input[name='buscarQuery']").val();
+                        window.location.replace($("input[name='location']").val()+page+buscar);
                     }
                     else
                         $(".alert-error").show();

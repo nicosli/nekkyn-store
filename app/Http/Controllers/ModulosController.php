@@ -80,13 +80,15 @@ class ModulosController extends Controller{
 	}
 
 	public static function productos(Request $request){
-		$productos 		= Producto::paginate(10);
 		$categorias 	= Categoria::all();
 		$colores 		= Color::all();
 		$proveedores 	= Proveedor::all();
 		$tallas 		= Talla::all();
 		$page 			= $request->input('page');
 		$success 		= $request->input('success');
+		$buscar 		= $request->input('buscar');
+
+		$productos 		= (empty($buscar))? Producto::paginate(10) : Producto::where('nombre', 'LIKE', '%'.$buscar.'%')->paginate(10);
 
 		return view('modulos.productos.inicio', array(
 			'productos' 	=> $productos,
@@ -95,7 +97,8 @@ class ModulosController extends Controller{
 			'proveedores'	=> $proveedores,
 			'tallas'		=> $tallas,
 			'page'			=> $page,
-			'success'		=> $success
+			'success'		=> $success,
+			'buscar'		=> $buscar
 		));
 	}
 

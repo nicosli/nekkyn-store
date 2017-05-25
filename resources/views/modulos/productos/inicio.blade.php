@@ -14,6 +14,7 @@
 <div class="wrapp-inicio">
 	<input type="hidden" name="page" value="{{ $page }}">
 	<input type="hidden" name="location" value="{{Request::path()}}">
+	<input type="hidden" name="buscarQuery" value="{{ $buscar }}">
 	<h2 class="h2TitMod"><i class="fa fa-barcode fah2"></i> Tabla de Productos</h2>
 	<p>
 		El módulo de Productos esta diseñado para agregar todos los Productos que necesitemos
@@ -41,6 +42,17 @@
 				<strong>Error al guardar!</strong> Ocurrió un error al intentar guardar el Producto :/
 			</div>
 			<div class="titTab"><i class="fa fa-angle-right"></i> Tabla Productos</div>
+			<div class="pull-right">
+				<form class="form-inline" action="{{Request::url()}}" data-toggle="validator" method="GET">
+					<div class="form-group">
+						<div class="input-group">
+							<div class="input-group-addon"><i class="fa fa-laptop" aria-hidden="true"></i></div>
+							<input type="text" class="form-control input-sm" id="Buscar" value="{{$buscar}}" name="buscar" placeholder="Buscar Producto" required>
+						</div>
+					</div>
+					<button type="submit" class="btn btn-default btn-sm">Buscar</button>
+				</form>
+			</div>
 			<button type="button" class="btn btn-primary btn-sm btn-add" data-toggle="modal" data-target="#modalGuardar">Agregar</button>
 			<div class="table-responsive">
 			<table class="table table-striped">
